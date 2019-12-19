@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/nhl_stats'
+
+require "bundler/setup"
+require "nhl_stats"
 
 NhlStats::CLI.new.call
