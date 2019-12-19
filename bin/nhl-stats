@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/nhl_stats'
+
+NhlStats::CLI.new.call
