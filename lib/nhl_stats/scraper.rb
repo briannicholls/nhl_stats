@@ -37,18 +37,17 @@ class NhlStats::Scraper
     doc = Nokogiri::HTML(open("#{BASE}#{player.url}"))
 
     x = doc.css('#profile *') #.text
-    born = x[1].children.collect{|e| e.text}.select{|e| !e.empty?}
+    bio = x[1].children.collect{|e| e.text}.select{|e| !e.empty?}
     player.bio = <<-bio
     ************************************************
     *  #{player.name}
-    *  #{born[0]} #{born[1]}
-    *  #{born[2]} #{born[3]}
-    *  #{born[4]}
-    *  #{born[5]}
-    *  #{born[6]}
+    *  #{bio[0]} #{bio[1]}
+    *  #{bio[2]} #{bio[3]}
+    *  #{bio[4]}
+    *  #{bio[5]}
+    *  #{bio[6]}
     ************************************************
     bio
-    player
   end
 
 end

@@ -1,18 +1,15 @@
 class NhlStats::CLI
-  @player_list = []
 
   def call
      NhlStats::Scraper.scrape_top_players
      NhlStats::Player.display_all
-
-     @player_list = NhlStats::Player.all
+     NhlStats::Player.all
     menu
   end
 
-
   def menu
     puts "Enter number to get more info on player, or type 'exit' to leave."
-    puts "Type 'list' to list all players. Type -h for help."
+    puts "Type 'list' to list all players."
     input = gets.strip
 
     if input == 'exit'
@@ -21,9 +18,10 @@ class NhlStats::CLI
     elsif input == "list"
       NhlStats::Player.display_all
       menu
-    elsif input == "-h"
-      puts "Insert helpful information here!!"
-    elsif input.to_i <= @player_list.length
+    elsif input == "sort"
+      NhlStats::Player.sort_by_goals_scored
+      menu
+    elsif input.to_i <= NhlStats::Player.all.length && !input.empty?
       display_player(input.to_i)
       puts "Press any key to continue..."
       gets.strip
@@ -35,13 +33,10 @@ class NhlStats::CLI
     end
   end
 
-
   def display_player(num)
-    x = @player_list[num - 1]
+    x = NhlStats::Player.all[num - 1]
     NhlStats::Scraper.scrape_player(x)
     x.display_bio
   end
-
-
 
 end

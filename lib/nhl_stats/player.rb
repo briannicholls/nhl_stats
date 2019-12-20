@@ -2,32 +2,36 @@ class NhlStats::Player
   # base player url (gretzky): https://www.quanthockey.com   /hockey-stats/en/profile.php?player=2143
   @@all = []
 
+  attr_accessor :url, :rank, :country, :name, :born, :position, :games_played, :goals_scored, :assists,
+    :points, :penalty_minutes, :plus_minus, :pplay_goals, :shorthanded_goals, :game_winning_goals,
+    :goals_per_games_played, :assists_per_games_played, :points_per_games_played, :bio
+
   def initialize(params)
     params.each{ |key, value| self.send("#{key}=", value) }
     self.standardize
   end
 
-  attr_accessor :url, :rank, :country, :name, :born, :position, :games_played, :goals_scored, :assists,
-    :points, :penalty_minutes, :plus_minus, :pplay_goals, :shorthanded_goals, :game_winning_goals,
-    :goals_per_games_played, :assists_per_games_played, :points_per_games_played, :bio
-
   def self.display_all
-    # return all players
-    puts "All-Time Points Leaders:"
-    puts <<-list
-                                   Games   Goals                 Penalty     P.P.  S.H.  G.W.   Gls/   Ass./  Pts/
-      Country/Name       Born Pos. Played  Scored Assists Points Mins   +/-  Gls   Gls   Gls    GPlyd  GPlyd  GPlyd
-    list
-
+    puts self.heading
     @@all.each_with_index{ |e, i|
-    puts <<-rows
-#{e.rank} #{e.country} #{e.name} #{e.born} #{e.position}    #{e.games_played}   #{e.goals_scored}    #{e.assists}    #{e.points}   #{e.penalty_minutes}   #{e.plus_minus}  #{e.pplay_goals}   #{e.shorthanded_goals}    #{e.game_winning_goals}    #{e.goals_per_games_played}  #{e.assists_per_games_played}  #{e.points_per_games_played}
-    rows
+      e.rank = i + 1
+      e.standardize
+      e.display(i)
     }
+    puts self.heading
+    puts ""
+    puts ""
   end
 
   def self.all
     @@all
+  end
+
+  def self.heading
+    <<-HEAD
+                                   Games   Goals                 Penalty     P.P.  S.H.  G.W.   Gls/   Ass./  Pts/
+        Country/Name     Born Pos. Played  Scored Assists Points Mins   +/-  Gls   Gls   Gls    GPlyd  GPlyd  GPlyd
+    HEAD
   end
 
   def save
@@ -35,7 +39,7 @@ class NhlStats::Player
   end
 
   def standardize
-    self.rank = " #{self.rank}" if self.rank.length < 2
+    self.rank = " #{self.rank}" if self.rank.to_s.length < 2
     self.country = "  " if self.country.length < 2
     #7
 
@@ -89,4 +93,22 @@ class NhlStats::Player
   def display_bio
     puts self.bio
   end
+
+  def display(index)
+    puts <<-row
+#{@rank} #{@country} #{@name} #{@born} #{@position}    #{@games_played}   #{@goals_scored}    #{@assists}    #{@points}   #{@penalty_minutes}   #{@plus_minus}  #{@pplay_goals}   #{@shorthanded_goals}    #{@game_winning_goals}    #{@goals_per_games_played}  #{@assists_per_games_played}  #{@points_per_games_played}
+row
+  end
+
+  def self.sort_by_goals_scored
+    self.display_all
+
+    @@all.sort_by!{ |player|
+      -player.goals_scored.strip.to_i
+     }
+     puts "After sort:"
+     self.display_all
+  end
+
+
 end
