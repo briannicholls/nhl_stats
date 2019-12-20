@@ -2,39 +2,45 @@ class NhlStats::CLI
   @player_list = []
 
   def call
-    list_top_players
+     NhlStats::Scraper.scrape_top_players
+     NhlStats::Player.display_all
+
+     @player_list = NhlStats::Player.all
     menu
   end
 
-  def list_top_players
 
+  def menu
+    puts "Enter number to get more info on player, or type 'exit' to leave."
+    puts "Type 'list' to list all players. Type -h for help."
+    input = gets.strip
 
-    #save to @player_list
-    @player_list = NhlStats::Player.all
+    if input == 'exit'
+      puts "Goodbye!"
+      exit
+    elsif input == "list"
+      NhlStats::Player.display_all
+      menu
+    elsif input == "-h"
+      puts "Insert helpful information here!!"
+    elsif input.to_i <= @player_list.length
+      display_player(input.to_i)
+      puts "Press any key to continue..."
+      gets.strip
+      menu
+    else
+      puts "I don't understand!"
+      sleep 0.7
+      menu
+    end
   end
 
-def menu
-  puts "Enter number to get more info on player, or type 'exit' to leave. Type -h for help."
-  input = gets.strip
 
-  if input == 'exit'
-    puts "Goodbye!"
-    exit
-  elsif input == "-h"
-    puts "Insert helpful information here!!"
-  elsif input.to_i > 0 && input.to_i <= 50
-    # Get info on corresponding player in @player_list
-    puts "Player information for list number: #{input}"
-  else
-    puts "I don't understand!"
-    sleep 1
-    menu
+  def display_player(num)
+    x = @player_list[num - 1]
+    NhlStats::Scraper.scrape_player(x)
+    x.display_bio
   end
-end
-
-def display_player(number)
-  puts "Player info from player #{number} in #{@player_list[number - 1]}"
-end
 
 
 
