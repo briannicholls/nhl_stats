@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Brian Nicholls"]
   spec.email         = ["nichol88@gmail.com"]
 
-  spec.summary       = %q{Simple gem display NHL stats.}
+  spec.summary       = %q{Simple gem to display NHL stats.}
   spec.description   = spec.summary
   spec.homepage      = "http://github.com/nichol88/NHL-Stats"
   spec.license       = "MIT"

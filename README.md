@@ -1,7 +1,7 @@
 # NHL Stats
 
-Welcome! This gem is a simple web-scraping CLI to view selected stats of NHL players.
-
+Welcome! This gem is a simple web-scraping CLI to view selected stats of NHL
+players, as per the website quanthockey.com
 
 
 ## Installation
