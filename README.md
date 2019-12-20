@@ -1,8 +1,8 @@
 # NHL Stats
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nhl_stats`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome! This gem is a simple web-scraping CLI to view selected stats of NHL players.
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
@@ -22,7 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Upon execution, the CLI will show you a list of top 50 players by all-time points.
+
+You are then prompted to choose a number to view more information on that player,
+like birthplace, handed-ness, and height.
+
+Exit the application at any prompt by typing 'exit'.
 
 ## Development
 
@@ -32,7 +37,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nhl_stats. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/nichol88/nhl_stats. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +45,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the NhlStats project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/nhl_stats/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the NhlStats project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/nichol88/nhl_stats/blob/master/CODE_OF_CONDUCT.md).
