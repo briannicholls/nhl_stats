@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["nichol88@gmail.com"]
 
   spec.summary       = %q{Simple gem to display NHL stats.}
-  spec.description   = spec.summary
+  spec.description   = %q{Scrapes quanthockey.com}
   spec.homepage      = "http://github.com/nichol88/NHL-Stats"
   spec.license       = "MIT"
 
@@ -32,15 +32,15 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.bindir        = "bin"
+  spec.executables   = 'nhl-stats' #spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib/nhl_stats.rb", "lib"]
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 
-  spec.add_dependency "nokogiri"
-  spec.add_development_dependency "pry"
+  spec.add_dependency "nokogiri", "~> 1.10.7"
+  spec.add_development_dependency "pry", "~> 0.12.2"
   #spec.add_dependency "open-url"
 end

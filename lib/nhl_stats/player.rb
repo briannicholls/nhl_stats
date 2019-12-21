@@ -11,6 +11,10 @@ class NhlStats::Player
     self.standardize
   end
 
+  def self.get_players
+    NhlStats::Scraper.scrape_top_players
+  end
+
   def self.display_all
     puts self.heading
     @@all.each_with_index{ |e, i|
