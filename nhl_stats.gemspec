@@ -3,6 +3,7 @@ lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "nhl_stats/version"
 require "nhl_stats"
+
 Gem::Specification.new do |spec|
   spec.name          = "nhl_stats"
   spec.version       = NHLStats::VERSION
