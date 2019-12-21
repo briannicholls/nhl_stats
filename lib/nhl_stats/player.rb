@@ -1,4 +1,4 @@
-class NhlStats::Player
+class NHLStats::Player
   # base player url (gretzky): https://www.quanthockey.com   /hockey-stats/en/profile.php?player=2143
   @@all = []
 
@@ -12,7 +12,7 @@ class NhlStats::Player
   end
 
   def self.get_players
-    NhlStats::Scraper.scrape_top_players
+    NHLStats::Scraper.scrape_top_players
   end
 
   def self.display_all

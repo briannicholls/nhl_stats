@@ -1,6 +1,6 @@
-class NhlStats::Scraper
+class NHLStats::Scraper
   BASE = "https://www.quanthockey.com"
-  URL = "https://www.quanthockey.com/nhl/records/nhl-players-all-time-points-leaders.html"
+  URL = "https://www.quanthockey.com/NHL/records/NHL-players-all-time-points-leaders.html"
 
   # scrape data from all-time top players and create Player object for each
   def self.scrape_top_players
@@ -9,7 +9,7 @@ class NhlStats::Scraper
 
     players = all_rows.map{ |row|
       values = row.css('td')
-      NhlStats::Player.new(
+      NHLStats::Player.new(
         url: values[2].children[0]["href"],
         rank: values[0].text,
         country: values[1].text,

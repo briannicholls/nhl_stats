@@ -1,9 +1,9 @@
-class NhlStats::CLI
+class NHLStats::CLI
 
   def call
-     NhlStats::Scraper.scrape_top_players
-     NhlStats::Player.display_all
-     NhlStats::Player.all
+     NHLStats::Scraper.scrape_top_players
+     NHLStats::Player.display_all
+     NHLStats::Player.all
     menu
   end
 
@@ -16,12 +16,12 @@ class NhlStats::CLI
       puts "Goodbye!"
       exit
     elsif input == "list"
-      NhlStats::Player.display_all
+      NHLStats::Player.display_all
       menu
     elsif input == "sort"
-      NhlStats::Player.sort_by_goals_scored
+      NHLStats::Player.sort_by_goals_scored
       menu
-    elsif input.to_i <= NhlStats::Player.all.length && !input.empty?
+    elsif input.to_i <= NHLStats::Player.all.length && !input.empty?
       display_player(input.to_i)
       puts "Press any key to continue..."
       gets.strip
@@ -34,8 +34,8 @@ class NhlStats::CLI
   end
 
   def display_player(num)
-    x = NhlStats::Player.all[num - 1]
-    NhlStats::Scraper.scrape_player(x)
+    x = NHLStats::Player.all[num - 1]
+    NHLStats::Scraper.scrape_player(x)
     x.display_bio
   end
 
