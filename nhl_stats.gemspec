@@ -1,6 +1,10 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'nhl_stats/version'
+require 'nhl_stats/player'
+require 'nhl_stats/scraper'
+require 'nhl_stats/cli'
 
 Gem::Specification.new do |spec|
   spec.name          = "nhl_stats"
@@ -10,7 +14,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Simple gem to display NHL stats.}
   spec.description   = %q{Scrapes quanthockey.com}
-  #spec.homepage      = "http://github.com/nichol88/nhl_stats"
+  spec.homepage      = "http://github.com/nichol88/nhl_stats"
   spec.license       = "MIT"
 
 
@@ -23,8 +27,8 @@ Gem::Specification.new do |spec|
   spec.executables   = 'nhl-stats' #spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   spec.files         = [
-    "lib/nhl_stats.rb", "lib/nhl_stats/player.rb", "lib/nhl_stats/scraper.rb",
-    "lib/nhl_stats/cli.rb", "bin/nhl-stats", "lib/nhl_stats/version.rb"
+    "./lib/nhl_stats.rb", "./lib/nhl_stats/player.rb", "./lib/nhl_stats/scraper.rb",
+    "./lib/nhl_stats/cli.rb", "bin/nhl-stats", "./lib/nhl_stats/version.rb"
   ]
 
   spec.add_development_dependency "bundler", "~> 1.17"
@@ -34,4 +38,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "nokogiri", "~> 1.10.7"
   spec.add_development_dependency "pry", "~> 0.12.2"
   #spec.add_dependency "nhl_stats"
+
+  #spec.add_dependency 'nhl_stats/scraper'
+  #spec.add_dependency 'nhl_stats/player'
+  #spec.add_dependency 'nhl_stats/cli'
+  #spec.add_dependency 'nhl_stats/version'
 end
