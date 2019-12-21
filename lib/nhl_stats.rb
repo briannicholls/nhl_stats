@@ -1,11 +1,14 @@
+require 'pry'
+require 'open-uri'
+require 'nokogiri'
 
+require_relative 'nhl_stats/player'
+require_relative 'nhl_stats/scraper'
+require_relative 'nhl_stats/cli'
 
-module NHLStats
+require_relative 'nhl_stats/version'
+
+class NHLStats
 
 
 end
-
-require_relative './nhl_stats/cli'
-require_relative './nhl_stats/player'
-require_relative './nhl_stats/scraper'
-require_relative './nhl_stats/version'
