@@ -9,7 +9,7 @@ class NHLStats::CLI
 
   def menu
     puts "Enter number to get more info on player, or type 'exit' to leave."
-    puts "Type 'list' to list all players."
+    puts "Type 'list' to list all players, or 'sort' to sort by goals scored."
     input = gets.strip
 
     if input == 'exit'
@@ -38,5 +38,11 @@ class NHLStats::CLI
     NHLStats::Scraper.scrape_player(x)
     x.display_bio
   end
+
+  def detail_menu
+
+  end
+
+
 
 end

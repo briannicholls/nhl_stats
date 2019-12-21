@@ -20,6 +20,8 @@ Or install it yourself as:
 
     $ gem install nhl_stats
 
+Type ```nhl-stats``` into your Terminal to launch
+
 ## Usage
 
 Upon execution, the CLI will show you a list of top 50 players by all-time points.

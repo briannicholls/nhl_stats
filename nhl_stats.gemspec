@@ -37,10 +37,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "nokogiri", "~> 1.10.7"
   spec.add_development_dependency "pry", "~> 0.12.2"
-  #spec.add_dependency "nhl_stats"
 
-  #spec.add_dependency 'nhl_stats/scraper'
-  #spec.add_dependency 'nhl_stats/player'
-  #spec.add_dependency 'nhl_stats/cli'
-  #spec.add_dependency 'nhl_stats/version'
 end
