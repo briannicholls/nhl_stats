@@ -1,0 +1,3 @@
+
+class NHLStats
+end

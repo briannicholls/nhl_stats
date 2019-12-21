@@ -1,7 +1,7 @@
-require_relative "../lib/nhl_stats/version"
-require_relative "../lib/nhl_stats/cli"
-require_relative "../lib/nhl_stats/player"
-require_relative "../lib/nhl_stats/scraper"
+#require_relative "../nhl_stats/version"
+#require_relative "../nhl_stats/cli"
+#require_relative "../nhl_stats/player"
+#require_relative "../nhl_stats/scraper"
 
 class NHLStats::CLI
 

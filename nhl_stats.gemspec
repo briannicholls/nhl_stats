@@ -1,8 +1,7 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "nhl_stats/version"
-require "nhl_stats"
+
 
 Gem::Specification.new do |spec|
   spec.name          = "nhl_stats"
@@ -35,4 +34,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "nokogiri", "~> 1.10.7"
   spec.add_development_dependency "pry", "~> 0.12.2"
+  #spec.add_dependency "nhl_stats"
 end
