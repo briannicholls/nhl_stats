@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.bindir        = "bin"
-  spec.executables   = 'bin/nhl-stats' #spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = 'nhl-stats' #spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   spec.files         = [
     "lib/nhl_stats.rb", "lib/nhl_stats/player.rb", "lib/nhl_stats/scraper.rb",
