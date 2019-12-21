@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Simple gem to display NHL stats.}
   spec.description   = %q{Scrapes quanthockey.com}
-  spec.homepage      = "http://github.com/nichol88/nhl_stats"
+  #spec.homepage      = "http://github.com/nichol88/nhl_stats"
   spec.license       = "MIT"
 
 
