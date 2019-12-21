@@ -1,6 +1,3 @@
-
-
-class NhlStats
   require 'pry'
   require 'open-uri'
   require 'nokogiri'
@@ -8,4 +5,3 @@ class NhlStats
   require_relative "./nhl_stats/version"
   require_relative "./nhl_stats/cli"
   require_relative "./nhl_stats/scraper"
-end

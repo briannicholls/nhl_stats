@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     nhl_stats (0.1.0)
-      nokogiri
+      nokogiri (~> 1.10.7)
 
 GEM
   remote: https://rubygems.org/
@@ -37,7 +37,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.17)
   nhl_stats!
-  pry
+  pry (~> 0.12.2)
   rake (~> 10.0)
   rspec (~> 3.0)
 
