@@ -2,8 +2,7 @@ class NHLStats::CLI
 
   def call
      NHLStats::Scraper.scrape_top_players
-     NHLStats::Player.display_all
-     NHLStats::Player.all
+     NHLStats::List.list_players(NHLStats::Player.all)
     menu
   end
 
@@ -23,8 +22,6 @@ class NHLStats::CLI
       menu
     elsif input.to_i <= NHLStats::Player.all.length && !input.empty?
       display_player(input.to_i)
-      puts "Press any key to continue..."
-      gets.strip
       menu
     else
       puts "I don't understand!"

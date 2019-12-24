@@ -2,6 +2,8 @@ class NHLStats::Scraper
   BASE = "https://www.quanthockey.com"
   URL = "https://www.quanthockey.com/NHL/records/NHL-players-all-time-points-leaders.html"
 
+  
+
   # scrape data from all-time top players and create Player object for each
   def self.scrape_top_players
     doc = Nokogiri::HTML(open(URL))
