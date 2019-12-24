@@ -36,10 +36,4 @@ class NHLStats::CLI
     x.display_bio
   end
 
-  def detail_menu
-
-  end
-
-
-
 end
