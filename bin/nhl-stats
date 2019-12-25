@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 
-
 require "bundler/setup"
 require "nhl_stats"
-
 
 require './lib/nhl_stats'
 

@@ -16,24 +16,21 @@ class NHLStats::CLI
       exit
     elsif input == "list"
       NHLStats::Player.display_all
-      menu
     elsif input == "sort"
       NHLStats::Player.sort_by_goals_scored
-      menu
     elsif input.to_i <= NHLStats::Player.all.length && !input.empty?
-      display_player(input.to_i)
-      menu
+      add_bio(input.to_i)
+      puts NHLStats::Player.all[input.to_i - 1].bio
     else
       puts "I don't understand!"
       sleep 0.7
-      menu
     end
+    menu
   end
 
-  def display_player(num)
+  def add_bio(num)
     x = NHLStats::Player.all[num - 1]
     NHLStats::Scraper.scrape_player(x)
-    x.display_bio
   end
 
 end
