@@ -17,9 +17,10 @@ class NHLStats::CLI
       puts "Goodbye!"
       exit
     elsif input == "list"
-      NHLStats::Player.display_all
+      @top_players.list_players
     elsif input == "sort"
-      NHLStats::Player.sort_by_goals_scored
+      @top_players.sort_by_goals_scored
+      @top_players.list_players
     elsif input.to_i <= NHLStats::Player.all.length && !input.empty?
       add_bio(input.to_i)
       puts NHLStats::Player.all[input.to_i - 1].bio

@@ -1,5 +1,5 @@
 class NHLStats::Player
-  @@all = [] 
+  @@all = []
 
   attr_accessor :url, :rank, :country, :name, :born, :position, :games_played, :goals_scored, :assists,
     :points, :penalty_minutes, :plus_minus, :pplay_goals, :shorthanded_goals, :game_winning_goals,

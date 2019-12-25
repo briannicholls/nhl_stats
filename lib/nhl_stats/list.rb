@@ -21,7 +21,7 @@ class NHLStats::List
     def list_player(number)
       player = self[number - 1]
       puts HEADING
-      puts player
+      player.display
     end
 
     def list_players
@@ -37,8 +37,7 @@ class NHLStats::List
         -player.goals_scored.strip.to_i
        }
       @list.each_with_index{ |e, i|
-        e.rank = i + 1
+        e.rank = (i + 1).to_s
       }
     end
-
 end

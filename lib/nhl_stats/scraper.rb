@@ -1,5 +1,5 @@
 class NHLStats::Scraper
-  
+
   BASE = "https://www.quanthockey.com"
   URL = "https://www.quanthockey.com/NHL/records/NHL-players-all-time-points-leaders.html"
 
@@ -8,7 +8,7 @@ class NHLStats::Scraper
     doc = Nokogiri::HTML(open(URL))
     all_rows = doc.css('tbody tr')
 
-    players = all_rows.map{ |row|
+    all_rows.each{ |row|
       values = row.css('td')
       NHLStats::Player.new(
         url: values[2].children[0]["href"],
