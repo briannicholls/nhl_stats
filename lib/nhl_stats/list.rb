@@ -15,17 +15,18 @@ class NHLStats::List
       FOOT
 
     def initialize
-      @list = NHLPlayers::Player.all
+      @list = NHLStats::Player.all
     end
 
-    def self.list_player(player)
+    def list_player(number)
+      player = self[number - 1]
       puts HEADING
       puts player
     end
 
-    def self.list_players(players)
+    def list_players
       puts HEADING
-      players.each{ |player|
+      @list.each{ |player|
         player.display
       }
       puts FOOTER

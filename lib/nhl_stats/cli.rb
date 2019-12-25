@@ -2,11 +2,13 @@ class NHLStats::CLI
 
   def call
      NHLStats::Scraper.scrape_top_players
-     NHLStats::List.list_players(NHLStats::Player.all)
+     @top_players = NHLStats::List.new
+     @top_players.list_players
     menu
   end
 
   def menu
+
     puts "Enter number to get more info on player, or type 'exit' to leave."
     puts "Type 'list' to list all players, or 'sort' to sort by goals scored."
     input = gets.strip
