@@ -33,7 +33,7 @@ class NHLStats::Scraper
      }
   end
 
-  # scrapes player bio from unique URL
+  # input: Player object, scrapes info from unique URL
   def self.scrape_player(player)
     doc = Nokogiri::HTML(open("#{BASE}#{player.url}"))
 

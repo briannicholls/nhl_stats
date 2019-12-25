@@ -14,16 +14,19 @@ class NHLStats::List
   *********************************************************************************************************************
       FOOT
 
+    # initializes with all Players
     def initialize
       @list = NHLStats::Player.all
     end
 
+    # input index number of player to list stats
     def list_player(number)
       player = self[number - 1]
       puts HEADING
       player.display
     end
 
+    # list all players in List
     def list_players
       puts HEADING
       @list.each{ |player|
@@ -32,6 +35,7 @@ class NHLStats::List
       puts FOOTER
     end
 
+    # change sorting to goals scored
     def sort_by_goals_scored
       @list.sort_by!{ |player|
         -player.goals_scored.strip.to_i
