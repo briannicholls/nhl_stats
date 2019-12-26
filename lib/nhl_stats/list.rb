@@ -42,4 +42,12 @@ class NHLStats::List
          e.rank = (i + 1).to_s
        }
     end
+
+    def length
+      @list.length
+    end
+
+    def player(num)
+      @list[num - 1]
+    end
 end

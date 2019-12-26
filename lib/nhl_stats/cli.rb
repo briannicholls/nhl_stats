@@ -20,9 +20,8 @@ class NHLStats::CLI
       @top_players.list_players
     elsif input == "sort"
       sort_menu
-    elsif input.to_i <= NHLStats::Player.all.length && !input.empty?
-      add_bio(input.to_i)
-      puts @top_players[input.to_i - 1].display_bio
+    elsif input.to_i <= @top_players.length && !input.empty?
+      @top_players.player(input.to_i).display_bio
     else
       puts "I don't understand!"
       sleep 0.7
