@@ -35,13 +35,11 @@ class NHLStats::List
       puts FOOTER
     end
 
-    # change sorting to goals scored
-    def sort_by_goals_scored
+    def sort_by(attribute)
       @list.sort_by!{ |player|
-        -player.goals_scored.strip.to_i
+        -player.send("#{attribute}").to_i
+       }.each_with_index{ |e, i|
+         e.rank = (i + 1).to_s
        }
-      @list.each_with_index{ |e, i|
-        e.rank = (i + 1).to_s
-      }
     end
 end

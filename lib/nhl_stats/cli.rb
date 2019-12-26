@@ -19,11 +19,10 @@ class NHLStats::CLI
     elsif input == "list"
       @top_players.list_players
     elsif input == "sort"
-      @top_players.sort_by_goals_scored
-      @top_players.list_players
+      sort_menu
     elsif input.to_i <= NHLStats::Player.all.length && !input.empty?
       add_bio(input.to_i)
-      puts NHLStats::Player.all[input.to_i - 1].bio
+      puts @top_players[input.to_i - 1].display_bio
     else
       puts "I don't understand!"
       sleep 0.7
@@ -31,9 +30,40 @@ class NHLStats::CLI
     menu
   end
 
-  def add_bio(num)
-    x = NHLStats::Player.all[num - 1]
-    NHLStats::Scraper.scrape_player(x)
+  def sort_menu
+    puts "What would you like to sort by?"
+    puts "0. Sort by Points (default)"
+    puts "1. Sort by Birth Year"
+    puts "2. Sort by Goals Scored"
+    puts "3. Sort by Assists"
+    puts "4. Sort by Games Played"
+    puts "5. Sort by +/-"
+    puts "6. Sort by Power Play Goals"
+    puts "7. Sort by Short-Handed Goals"
+    input = gets.strip
+    # display list of sorting options
+    case input
+    when "0"
+      @top_players.sort_by("shorthanded_goals")
+    when "1"
+      @top_players.sort_by("born")
+    when "2"
+      @top_players.sort_by("goals_scored")
+    when "3"
+      @top_players.sort_by("assists")
+    when "4"
+      @top_players.sort_by("games_played")
+    when "5"
+      @top_players.sort_by("plus_minus")
+    when "6"
+      @top_players.sort_by("pplay_goals")
+    when "7"
+      @top_players.sort_by("shorthanded_goals")
+    when "7"
+      @top_players.sort_by("penalty_minutes")
+    end
+    @top_players.list_players
+    menu
   end
 
 end
