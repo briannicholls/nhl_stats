@@ -1,6 +1,7 @@
 require 'pry'
 require 'open-uri'
 require 'nokogiri'
+require 'watir'
 
 require_relative 'nhl_stats/scraper'
 require_relative 'nhl_stats/player'

@@ -1,16 +1,21 @@
 class NHLStats::CLI
 
   def call
-     NHLStats::Scraper.scrape_top_players
+    puts "********************************************"
+    puts "* Fetching Player List , please wait...    *"
+    puts "********************************************"
+     @scraper = NHLStats::Scraper.new
+     @scraper.scrape_top_players
      @top_players = NHLStats::List.new
      @top_players.list_players
     menu
   end
 
-  def menu
+  def menu # MAIN MENU
 
-    puts "Enter number to get more info on player, or type 'exit' to leave."
-    puts "Type 'list' to list all players, or 'sort' to sort by goals scored."
+    puts "Enter player's Rank number to get more info on that player."
+    puts "Type 'list' to list all players, or 'sort' to change sorting method."
+    puts "Type 'exit' to leave."
     input = gets.strip
 
     if input == 'exit'
@@ -20,8 +25,10 @@ class NHLStats::CLI
       @top_players.list_players
     elsif input == "sort"
       sort_menu
-    elsif input.to_i <= @top_players.length && !input.empty?
-      @top_players.player(input.to_i).display_bio
+    elsif input.to_i <= @top_players.length && input.to_i != 0
+      player = @top_players.player(input.to_i)
+      @scraper.scrape_player(player)
+      player.display_bio
     else
       puts "I don't understand!"
       sleep 0.7
@@ -29,7 +36,7 @@ class NHLStats::CLI
     menu
   end
 
-  def sort_menu
+  def sort_menu # SORT-BY MENU
     puts "What would you like to sort by?"
     puts "0. Sort by Points (default)"
     puts "1. Sort by Birth Year"

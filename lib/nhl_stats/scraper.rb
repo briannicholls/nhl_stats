@@ -2,13 +2,16 @@ class NHLStats::Scraper
 
   BASE = "https://www.quanthockey.com"
   URL = "https://www.quanthockey.com/NHL/records/NHL-players-all-time-points-leaders.html"
+  URL_HASH = {
+  }
+  def initialize
+    @doc = Nokogiri::HTML(open(URL))
+  end
 
   # scrape data from all-time top players and create Player object for each
-  def self.scrape_top_players
-    doc = Nokogiri::HTML(open(URL))
-    all_rows = doc.css('tbody tr')
+  def scrape_top_players
 
-    all_rows.each{ |row|
+    @doc.css('tbody tr').each{ |row|
       values = row.css('td')
       NHLStats::Player.new(
         url: values[2].children[0]["href"],
@@ -31,10 +34,15 @@ class NHLStats::Scraper
         points_per_games_played: values[16].text
       ).save
      }
+     if NHLStats::Player.all.length == 50
+       next_page
+       scrape_top_players
+     end
+
   end
 
   # input: Player object, scrapes info from unique URL
-  def self.scrape_player(player)
+  def scrape_player(player)
     doc = Nokogiri::HTML(open("#{BASE}#{player.url}"))
 
     x = doc.css('#profile *') #.text
@@ -49,6 +57,15 @@ class NHLStats::Scraper
     *  #{bio[6]}
     ************************************************
     bio
+  end
+
+private
+  def next_page
+    browser = Watir::Browser.new :chrome, :switches => %w[--ignore-certificate-errors --disable-popup-blocking --disable-translate --disable-notifications --start-maximized --disable-gpu --headless]
+    browser.goto URL
+    browser.link(text: "2").click
+    sleep 2
+    @doc = Nokogiri::HTML.parse(browser.html)
   end
 
 end

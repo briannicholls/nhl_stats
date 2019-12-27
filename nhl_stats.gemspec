@@ -6,6 +6,7 @@ require 'nhl_stats/player'
 require 'nhl_stats/scraper'
 require 'nhl_stats/cli'
 
+
 Gem::Specification.new do |spec|
   spec.name          = "nhl_stats"
   spec.version       = NHLStats::VERSION
@@ -31,10 +32,10 @@ Gem::Specification.new do |spec|
     "./lib/nhl_stats/cli.rb", "bin/nhl-stats", "./lib/nhl_stats/version.rb"
   ]
 
-  spec.add_development_dependency "bundler", "~> 1.17"
+  spec.add_development_dependency "bundler", "~> 2.1.2"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-
+  spec.add_dependency "watir"
   spec.add_dependency "nokogiri", "~> 1.10.7"
   spec.add_development_dependency "pry", "~> 0.12.2"
 

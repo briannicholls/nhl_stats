@@ -2,15 +2,15 @@ class NHLStats::List
   attr_reader :list
 
   HEADING = <<-HEAD
-  *********************************************************************************************************************
-                                   Games   Goals                 Penalty     P.P.  S.H.  G.W.   Gls/   Ass./  Pts/
-      Name               Born Pos. Played  Scored Assists Points Mins   +/-  Gls   Gls   Gls    GPlyd  GPlyd  GPlyd
+*********************************************************************************************************************
+                                    Games   Goals                 Penalty      P.P.  S.H.  G.W.   Gls/   Ass./  Pts/
+  Rank     Name           Born Pos. Played  Scored Assists Points Mins    +/-  Gls   Gls   Gls    GPlyd  GPlyd  GPlyd
 *********************************************************************************************************************
     HEAD
   FOOTER = <<-FOOT
   *********************************************************************************************************************
-          Name           Born Pos  Games   Goals  Assists Points Penalty     P.P.  S.H.  G.W.   Gls/   Ass./  Pts/
-                                   Played  Scored                Mins   +/-  Gls   Gls   Gls    GPlyd  GPlyd  GPlyd
+  Rank     Name           Born Pos  Games   Goals  Assists Points Penalty      P.P.  S.H.  G.W.   Gls/   Ass./  Pts/
+                                    Played  Scored                Mins    +/-  Gls   Gls   Gls    GPlyd  GPlyd  GPlyd
   *********************************************************************************************************************
       FOOT
 

@@ -1,0 +1,12 @@
+version: "#{build}"
+build: off
+clone_depth: 100
+install:
+  - set PATH=C:\Ruby23\bin;%PATH%
+  - bundle install
+test_script:
+  - bundle exec rake %RAKE_TASK%
+environment:
+  matrix:
+    - RAKE_TASK: spec:chrome
+    - RAKE_TASK: spec:firefox
