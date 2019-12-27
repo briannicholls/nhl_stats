@@ -46,6 +46,7 @@ class NHLStats::CLI
     puts "5. Sort by +/-"
     puts "6. Sort by Power Play Goals"
     puts "7. Sort by Short-Handed Goals"
+    puts "8. Sort by Penalty Minutes"
     input = gets.strip
     # display list of sorting options
     case input
@@ -65,7 +66,7 @@ class NHLStats::CLI
       @top_players.sort_by("pplay_goals")
     when "7"
       @top_players.sort_by("shorthanded_goals")
-    when "7"
+    when "8"
       @top_players.sort_by("penalty_minutes")
     end
     @top_players.list_players
