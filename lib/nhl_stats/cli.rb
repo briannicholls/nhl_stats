@@ -51,7 +51,7 @@ class NHLStats::CLI
     # display list of sorting options
     case input
     when "0"
-      @top_players.sort_by("shorthanded_goals")
+      @top_players.sort_by("points")
     when "1"
       @top_players.sort_by("born")
     when "2"
